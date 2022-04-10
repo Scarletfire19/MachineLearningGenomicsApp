@@ -34,13 +34,15 @@ uploaded_file = st.file_uploader("Choose a file")
 if uploaded_file is not None:
      input = pd.read_csv(uploaded_file)
      st.write(input)
-    
-    
+      
 def euclidean_distance(w, q):
     n = 25 
     return sum([(w[i] - q[i]) ** 2 for i in range(n)]) ** 0.5
 
-p=Xcombined.iloc[735:740]
+#p=Xcombined.iloc[735:740]
+
+p=input
+
 
 dfdistances=dfcombined
 distances=[]
@@ -52,7 +54,6 @@ dfdistances['distances']=distances
 
 dfdistances=dfdistances.sort_values(by=['distances'])
 
-p=input
 
 import numpy as np
 p1 = np.zeros((len(p),len(c)))

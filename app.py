@@ -67,13 +67,25 @@ ancestry=pd.DataFrame(p2)
 #dfdistances
 #print(dfdistances['DNA sample ethnicity and id'].iloc[:3])
 
-Tools = st.selectbox("Choose your Tool", ["Distance Tool", "ML Ancestry Tool","Ancient DNA Lineage Tool"]) 
+Tools = st.selectbox("Choose your Tool", ["Distance Tool", "PCA(Principal Component Analysis) Tool","ML Ancestry Tool","Ancient DNA Lineage Tool"]) 
 
 if Tools == "Distance Tool":
   st.dataframe(dfdistances)
 
+
 elif Tools == "ML Ancestry Tool":
   st.dataframe(ancestry)
+
+
+elif Tools == "PCA(Principal Component Analysis) Tool":
+  fig, ax = plt.subplots(figsize=(45, 99))
+  ax.scatter(dfcurrentgroup['1'], dfcurrentgroup['2'],s = 1)
+  #ax.scatter(point['1'],point['2'],s=500)
+
+  for i in range(len(dfcurrentgroup)):
+    ax.annotate(dfcurrentgroup['DNA sample ethnicity'][i], (dfcurrentgroup['1'][i], dfcurrentgroup['2'][i]))
+  st.pyplot()
+
 
 elif Tools == "Ancient DNA Lineage Tool":
 

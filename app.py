@@ -46,6 +46,8 @@ def euclidean_distance(w, q):
     return sum([(w[i] - q[i]) ** 2 for i in range(n)]) ** 0.5
 
 p=Xcombined.iloc[735:740]
+dfdistances=dfcombined
+distances=[]
 
 
 
@@ -74,6 +76,7 @@ ancestry=pd.DataFrame(p2)
 Tools = st.selectbox("Choose your Tool", ["Genetic Distance Tool", "PCA(Principal Component Analysis) Tool","ML Ancestry Tool","Ancient DNA Lineage Tool"]) 
 
 if Tools == "Genetic Distance Tool":
+
      st.title("Genetic Distance Tool")
      Xinput=input.drop(columns=['DNA sample ethnicity and id'])
 

@@ -8,7 +8,7 @@ import numpy as np
 import pandas as pd
 
 
-st.markdown(page_bg_img, unsafe_allow_html=True)
+
 
 st.title("Machine Learning Genomics App")
 
@@ -93,7 +93,6 @@ if Tools == "Genetic Distance Tool":
 
 
 elif Tools == "ML Ancestry Tool":
-     
      page_bg_img = '''
      <style>
      body {
@@ -102,6 +101,9 @@ elif Tools == "ML Ancestry Tool":
      }
      </style>
      '''
+     st.markdown(page_bg_img, unsafe_allow_html=True)
+     
+
      st.title("ML Ancestry Tool")
      st.dataframe(ancestry)
 

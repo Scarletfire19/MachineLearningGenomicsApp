@@ -73,7 +73,7 @@ if Tools == "Distance Tool":
   st.dataframe(dfdistances)
 
 elif Tools == "ML Ancestry Tool":
-  st.datafram(ancestry)
+  st.dataframe(ancestry)
 
 elif Tools == "Ancient DNA Lineage Tool":
 

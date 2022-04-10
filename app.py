@@ -1,7 +1,4 @@
 import streamlit as st
-
-st.set_page_config(page_title="Machine Learning Genomics App", page_icon=random, layout="centered")
-
 from threading import activeCount
 import matplotlib.pyplot as plt
 import pickle

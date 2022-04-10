@@ -1,3 +1,5 @@
+st.set_page_config(page_title="Machine Learning Genomics App", page_icon=random, layout="centered")
+
 import streamlit as st
 from threading import activeCount
 import matplotlib.pyplot as plt
@@ -7,7 +9,6 @@ import io
 import numpy as np
 import pandas as pd
 
-st.set_page_config(page_title="Machine Learning Genomics App", page_icon=random, layout="centered")
 
 [theme]
 primaryColor="#2214c7"

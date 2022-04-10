@@ -7,13 +7,8 @@ import io
 import numpy as np
 import pandas as pd
 
+st.title("Machine Learning Genomics App")
 
-[theme]
-primaryColor="#2214c7"
-backgroundColor="#ffffff"
-secondaryBackgroundColor="#e8eef9"
-textColor="#000000"
-font="sans serif"
 
 dfcurrent=pd.read_csv("G25_Current_DNA.csv")
 Xcurrent=dfcurrent.drop(columns=['DNA sample ethnicity and id','DNA sample ethnicity','sample id'])

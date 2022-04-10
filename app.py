@@ -78,10 +78,7 @@ Tools = st.selectbox("Choose your Tool", ["Genetic Distance Tool", "PCA(Principa
 if Tools == "Genetic Distance Tool":
 
      st.title("Genetic Distance Tool")
-     if input:
-          Xinput=input.drop(columns=['DNA sample ethnicity and id'])
-     else:
-          k=1
+     Xinput=input.drop(columns=['DNA sample ethnicity and id'])
 
 
      for i in range(len(Xcombined)):

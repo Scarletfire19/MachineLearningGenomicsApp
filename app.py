@@ -79,30 +79,30 @@ ancestry=pd.DataFrame(p2)
 Tools = st.selectbox("Choose your Tool", ["Distance Tool", "PCA(Principal Component Analysis) Tool","ML Ancestry Tool","Ancient DNA Lineage Tool"]) 
 
 if Tools == "Distance Tool":
-  st.dataframe(dfdistances)
+     st.dataframe(dfdistances)
 
 
 elif Tools == "ML Ancestry Tool":
-  st.dataframe(ancestry)
+     st.dataframe(ancestry)
 
 
 elif Tools == "PCA(Principal Component Analysis) Tool":
-  fig, ax = plt.subplots(figsize=(45, 99))
-  ax.scatter(dfcurrentgroup['1'], dfcurrentgroup['2'],s = 1)
+     fig, ax = plt.subplots(figsize=(45, 99))
+     ax.scatter(dfcurrentgroup['1'], dfcurrentgroup['2'],s = 1)
+     ax.scatter(input['1'], input['2'],s = 5)
   #ax.scatter(point['1'],point['2'],s=500)
 
-  for i in range(len(dfcurrentgroup)):
-    ax.annotate(dfcurrentgroup['DNA sample ethnicity'][i], (dfcurrentgroup['1'][i], dfcurrentgroup['2'][i]))
-  st.pyplot()
+     for i in range(len(dfcurrentgroup)):
+          ax.annotate(dfcurrentgroup['DNA sample ethnicity'][i], (dfcurrentgroup['1'][i], dfcurrentgroup['2'][i]))
+     st.pyplot()
 
 
 elif Tools == "Ancient DNA Lineage Tool":
-
-  fig2, ax2 = plt.subplots(figsize=(30, 24))
-  ax2.scatter(dfancienthpg['1'], dfancienthpg['2'],s = 1)
-  #ax.scatter(point['1'],point['2'],s=500)
-  for i in range(len(dfancienthpg)):
-    ax2.annotate(dfancienthpg['Assigned Mutation'][i], (dfancienthpg['1'][i], dfancienthpg['2'][i]))
-  st.pyplot()
+     fig2, ax2 = plt.subplots(figsize=(30, 24))
+     ax2.scatter(dfancienthpg['1'], dfancienthpg['2'],s = 1)
+     #ax.scatter(point['1'],point['2'],s=500)
+     for i in range(len(dfancienthpg)):
+          ax2.annotate(dfancienthpg['Assigned Mutation'][i], (dfancienthpg['1'][i], dfancienthpg['2'][i]))
+     st.pyplot()
 
 

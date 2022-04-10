@@ -44,6 +44,26 @@ dfdistances['distances']=distances
 
 dfdistances=dfdistances.sort_values(by=['distances'])
 
+p=Xcombined.iloc[735:740]
+
+import numpy as np
+p1 = np.zeros((len(p),len(c)))
+p2 = np.zeros((len(p),len(c)))
+
+for i in range(len(p)):
+  for j in range(len(c)):
+    p1[i][j]=euclidean_distance(c.iloc[j],p.iloc[i])
+distmat=pd.DataFrame(p1)
+
+for q in range(len(p)):
+  tot=distmat.iloc[q].sum()
+
+  for w in range(len(c)):
+    p2[q,w]=1-((tot-distmat.iloc[q,w])/tot)
+
+ancestry=pd.DataFrame(p2)
+
+
 #dfdistances
 #print(dfdistances['DNA sample ethnicity and id'].iloc[:3])
 
@@ -53,7 +73,7 @@ if Tools == "Distance Tool":
   st.dataframe(dfdistances)
 
 elif Tools == "ML Ancestry Tool":
-  dfdistances
+  st.datafram(ancestry)
 
 elif Tools == "Ancient DNA Lineage Tool":
 

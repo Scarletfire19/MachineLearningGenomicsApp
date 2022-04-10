@@ -47,12 +47,19 @@ dfdistances=dfdistances.sort_values(by=['distances'])
 #dfdistances
 #print(dfdistances['DNA sample ethnicity and id'].iloc[:3])
 
-Tools = st.selectbox("Choose your Tool", ["Distance Tool", "ML Ancestry Tool"]) 
+Tools = st.selectbox("Choose your Tool", ["Distance Tool", "ML Ancestry Tool","Ancient DNA Lineage Tool"]) 
 
 if Tools == "Distance Tool":
   st.dataframe(dfdistances)
 
 elif Tools == "ML Ancestry Tool":
-  st.dataframe(dfdistances)
+  dfdistances
 
+elif Tools == "Ancient DNA Lineage Tool":
 
+  fig2, ax2 = plt.subplots(figsize=(30, 24))
+  ax2.scatter(dfancienthpg['1'], dfancienthpg['2'],s = 1)
+  #ax.scatter(point['1'],point['2'],s=500)
+  for i in range(len(dfancienthpg)):
+    ax2.annotate(dfancienthpg['Assigned Mutation'][i], (dfancienthpg['1'][i], dfancienthpg['2'][i]))
+  st.pyplot()

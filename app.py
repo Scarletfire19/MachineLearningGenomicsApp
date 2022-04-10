@@ -46,7 +46,7 @@ def euclidean_distance(w, q):
     return sum([(w[i] - q[i]) ** 2 for i in range(n)]) ** 0.5
 
 p=Xcombined.iloc[735:740]
-
+Xinput=input.dop(columns=['DNA sample ethnicity and id'])
 
 
 dfdistances=dfcombined
@@ -54,7 +54,7 @@ distances=[]
 #Induvidual
 
 for i in range(len(Xcombined)):
-  distances.append(euclidean_distance(Xcombined.iloc[i],p.iloc[3]))
+  distances.append(euclidean_distance(Xcombined.iloc[i],Xinput.iloc[3]))
 dfdistances['distances']=distances
 
 dfdistances=dfdistances.sort_values(by=['distances'])

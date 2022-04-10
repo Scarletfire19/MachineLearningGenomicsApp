@@ -96,7 +96,7 @@ elif Tools == "ML Ancestry Tool":
      page_bg_img = '''
      <style>
      body {
-     background-image: url("https://images.unsplash.com/photo-1542281286-9e0a16bb7366");
+     background-image: url("https://cdn-prod.medicalnewstoday.com/content/images/articles/318/318492/dna-strands.jpg");
      background-size: cover;
      }
      </style>

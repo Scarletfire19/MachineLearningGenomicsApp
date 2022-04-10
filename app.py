@@ -1,7 +1,8 @@
 import streamlit as st
 from threading import activeCount
 import matplotlib.pyplot as plt
-#import umap
+import pickle
+import umap
 import io
 import numpy as np
 import pandas as pd

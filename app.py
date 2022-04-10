@@ -55,15 +55,15 @@ dfdistances=dfdistances.sort_values(by=['distances'])
 
 
 import numpy as np
-p1 = np.zeros((len(input),len(c)))
-p2 = np.zeros((len(input),len(c)))
+p1 = np.zeros((len(p),len(c)))
+p2 = np.zeros((len(p),len(c)))
 
-for i in range(len(input)):
+for i in range(len(p)):
   for j in range(len(c)):
-     p1[i][j]=euclidean_distance(c.iloc[j],input.iloc[i])
+     p1[i][j]=euclidean_distance(c.iloc[j],p.iloc[i])
 distmat=pd.DataFrame(p1)
 
-for q in range(len(input)):
+for q in range(len(p)):
   tot=distmat.iloc[q].sum()
 
   for w in range(len(c)):

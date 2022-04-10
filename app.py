@@ -29,6 +29,26 @@ dfadnalineages=pd.read_csv("adnalineages.csv")
 dfancientpcadna = pd.merge(dfadnalineages,dfancient)
 dfancienthpg=dfancientpcadna.groupby(['Assigned Mutation']).mean().reset_index()
 
+
+uploaded_file = st.file_uploader("Choose a file")
+if uploaded_file is not None:
+     # To read file as bytes:
+     bytes_data = uploaded_file.getvalue()
+     st.write(bytes_data)
+
+     # To convert to a string based IO:
+     stringio = StringIO(uploaded_file.getvalue().decode("utf-8"))
+     st.write(stringio)
+
+     # To read file as string:
+     string_data = stringio.read()
+     st.write(string_data)
+
+     # Can be used wherever a "file-like" object is accepted:
+     input = pd.read_csv(uploaded_file)
+     st.write(input)
+    
+    
 def euclidean_distance(p, q):
     n = 25 # dimensions
     return sum([(p[i] - q[i]) ** 2 for i in range(n)]) ** 0.5
@@ -67,7 +87,7 @@ ancestry=pd.DataFrame(p2)
 
 filename = 'umap_model.sav'
 
-input=Xancient.iloc[2288:2316]
+#input=Xancient.iloc[2288:2316]
 loaded_model = pickle.load(open(filename, 'rb'))
 test_embedding = loaded_model.transform(input)
 print(test_embedding)
@@ -75,10 +95,6 @@ print(test_embedding)
 dfucurrentgroup=pd.DataFrame(ucurrentgroup)
 test_embedding = fit.transform(input)
 dftest_embedding=pd.DataFrame(test_embedding)
-
-
-
-
 
 
 #dfdistances

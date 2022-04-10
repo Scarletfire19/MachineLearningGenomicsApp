@@ -64,10 +64,26 @@ for q in range(len(p)):
 ancestry=pd.DataFrame(p2)
 
 
+filename = 'umap_model.sav'
+
+input=Xancient.iloc[2288:2316]
+loaded_model = pickle.load(open(filename, 'rb'))
+test_embedding = loaded_model.transform(input)
+print(test_embedding)
+
+dfucurrentgroup=pd.DataFrame(ucurrentgroup)
+test_embedding = fit.transform(input)
+dftest_embedding=pd.DataFrame(test_embedding)
+
+
+
+
+
+
 #dfdistances
 #print(dfdistances['DNA sample ethnicity and id'].iloc[:3])
 
-Tools = st.selectbox("Choose your Tool", ["Distance Tool", "PCA(Principal Component Analysis) Tool","ML Ancestry Tool","Ancient DNA Lineage Tool"]) 
+Tools = st.selectbox("Choose your Tool", ["Distance Tool", "PCA(Principal Component Analysis) Tool","ML Ancestry Tool","Ancient DNA Lineage Tool","Umap Plot Tool"]) 
 
 if Tools == "Distance Tool":
   st.dataframe(dfdistances)
@@ -95,3 +111,14 @@ elif Tools == "Ancient DNA Lineage Tool":
   for i in range(len(dfancienthpg)):
     ax2.annotate(dfancienthpg['Assigned Mutation'][i], (dfancienthpg['1'][i], dfancienthpg['2'][i]))
   st.pyplot()
+
+
+elif Tools == "Umap Plot Tool":
+    fig3, ax3 = plt.subplots(figsize=(50, 200))
+    scatter3 = ax3.scatter(dfucurrentgroup[0], dfucurrentgroup[1])
+    scatter3 = ax3.scatter(dftest_embedding[0], dftest_embedding[1],s=150,marker='*')
+    fig3=plt.figure(figsize=(50,95))
+
+    for i in range(len(dfcurrentgroup)):
+        ax3.annotate(dfcurrentgroup['DNA sample ethnicity'][i], (dfucurrentgroup[0][i], dfucurrentgroup[1][i]))
+    st.pyplot()

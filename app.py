@@ -67,7 +67,7 @@ for q in range(len(p)):
     p2[q,w]=1-((tot-distmat.iloc[q,w])/tot)
 
 ancestry=pd.DataFrame(p2)
-
+k=0
 
 
 #dfdistances
@@ -80,6 +80,8 @@ if Tools == "Genetic Distance Tool":
      st.title("Genetic Distance Tool")
      if input:
           Xinput=input.drop(columns=['DNA sample ethnicity and id'])
+     else:
+          k=1
 
 
      for i in range(len(Xcombined)):

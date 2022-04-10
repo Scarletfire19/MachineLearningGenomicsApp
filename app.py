@@ -52,7 +52,7 @@ dfdistances['distances']=distances
 
 dfdistances=dfdistances.sort_values(by=['distances'])
 
-p=len(input)
+p=input
 
 import numpy as np
 p1 = np.zeros((len(p),len(c)))

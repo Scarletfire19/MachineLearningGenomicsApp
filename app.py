@@ -105,11 +105,16 @@ elif Tools == "PCA(Principal Component Analysis) Tool":
 
 
 elif Tools == "Ancient DNA Lineage Tool":
+     
+     inputhaplogroup = st.text_input("Enter Y Haplogroup")
+     ancienthaplogroup = dfadnalineages[dfadnalineages['Assigned Mutation'].str.contains(inputhaplogroup)]
+
      st.title("Ancient DNA Lineage Tool")
 
      fig2, ax2 = plt.subplots(figsize=(30, 24))
      ax2.scatter(dfancienthpg['1'], dfancienthpg['2'],s = 1)
      ax2.scatter(input['1'], input['2'],s = 5)
+     ax2.scatter(ancienthaplogroup['1'], ancienthaplogroup['2'],s = 100)
 
      #ax.scatter(point['1'],point['2'],s=500)
      for i in range(len(dfancienthpg)):

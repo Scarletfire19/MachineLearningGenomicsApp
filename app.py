@@ -47,12 +47,12 @@ dfdistances=dfdistances.sort_values(by=['distances'])
 #dfdistances
 #print(dfdistances['DNA sample ethnicity and id'].iloc[:3])
 
-Tools = st.selectbox("Choose your Tool", ["Distance Tool", "ML Ancestry Tool", "Ancient DNA Lineage Tool"]) 
+Tools = st.selectbox("Choose your Tool", ["Distance Tool", "ML Ancestry Tool"]) 
 
-if page == "Distance Tool":
+if Tools == "Distance Tool":
   st.dataframe(dfdistances)
 
-elif page == "ML Ancestry Tool":
+elif Tools == "ML Ancestry Tool":
   st.dataframe(dfdistances)
 
 

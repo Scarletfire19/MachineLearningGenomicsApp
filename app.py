@@ -83,7 +83,6 @@ Tools = st.selectbox("Choose your Tool", ["Genetic Distance Tool", "PCA(Principa
 
 if Tools == "Genetic Distance Tool":
      st.title("Genetic Distance Tool")
-
      st.dataframe(dfdistances)
 
 
@@ -93,7 +92,7 @@ elif Tools == "ML Ancestry Tool":
 
 
 elif Tools == "PCA(Principal Component Analysis) Tool":
-      st.title("PCA(Principal Component Analysis) Tool")
+     st.title("PCA(Principal Component Analysis) Tool")
 
      fig, ax = plt.subplots(figsize=(45, 99))
      ax.scatter(dfcurrentgroup['1'], dfcurrentgroup['2'],s = 1)

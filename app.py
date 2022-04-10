@@ -36,9 +36,9 @@ if uploaded_file is not None:
      st.write(input)
     
     
-def euclidean_distance(p, q):
-    n = 25 # dimensions
-    return sum([(p[i] - q[i]) ** 2 for i in range(n)]) ** 0.5
+def euclidean_distance(w, q):
+    n = 25 
+    return sum([(w[i] - q[i]) ** 2 for i in range(n)]) ** 0.5
 
 p=Xcombined.iloc[735:740]
 

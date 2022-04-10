@@ -60,7 +60,8 @@ p2 = np.zeros((len(input),len(c)))
 
 for i in range(len(input)):
   for j in range(len(c)):
-    p1[i][j]=euclidean_distance(c.iloc[j],input.iloc[i])
+     pd.to_numeric(c.iloc[j])
+    p1[i][j]=euclidean_distance(pd.to_numeric(c.iloc[j]),pd.to_numeric(input.iloc[i]))
 distmat=pd.DataFrame(p1)
 
 for q in range(len(input)):

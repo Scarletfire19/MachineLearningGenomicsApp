@@ -82,7 +82,7 @@ ancestry=pd.DataFrame(p2)
 Tools = st.selectbox("Choose your Tool", ["Genetic Distance Tool", "PCA(Principal Component Analysis) Tool","ML Ancestry Tool","Ancient DNA Lineage Tool"]) 
 
 if Tools == "Genetic Distance Tool":
-     st.title(""Genetic Distance Tool")
+     st.title("Genetic Distance Tool")
 
      st.dataframe(dfdistances)
 

@@ -1,5 +1,5 @@
 umap-learn==0.5.2
-tsne==0.3.1
+pip==22.0.4
 altair==4.1.0
 astor==0.8.1
 attrs==19.3.0

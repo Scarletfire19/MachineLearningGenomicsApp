@@ -101,6 +101,15 @@ if Tools == "Genetic Distance Tool":
 
 
 elif Tools == "ML Ancestry Tool":
+     
+     page_bg_img = '''
+     <style>
+     body {
+     background-image: url("https://images.unsplash.com/photo-1542281286-9e0a16bb7366");
+     background-size: cover;
+     }
+     </style>
+     '''
      st.title("ML Ancestry Tool")
      st.dataframe(ancestry)
 

@@ -33,7 +33,7 @@ dfancientpcadna = pd.merge(dfadnalineages,dfancient)
 dfancienthpg=dfancientpcadna.groupby(['Assigned Mutation']).mean().reset_index()
 
 
-uploaded_file = st.file_uploader("Choose a file")
+uploaded_file = st.file_uploader("Enter G25 co-ordinates")
 if uploaded_file is not None:
      input = pd.read_csv(uploaded_file)
      st.write(input)

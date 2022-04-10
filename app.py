@@ -39,9 +39,8 @@ def euclidean_distance(w, q):
     n = 25 
     return sum([(w[i] - q[i]) ** 2 for i in range(n)]) ** 0.5
 
-#p=Xcombined.iloc[735:740]
+p=Xcombined.iloc[735:740]
 
-p=input
 
 
 dfdistances=dfcombined
@@ -56,15 +55,15 @@ dfdistances=dfdistances.sort_values(by=['distances'])
 
 
 import numpy as np
-p1 = np.zeros((len(p),len(c)))
-p2 = np.zeros((len(p),len(c)))
+p1 = np.zeros((len(input),len(c)))
+p2 = np.zeros((len(input),len(c)))
 
-for i in range(len(p)):
+for i in range(len(input)):
   for j in range(len(c)):
-    p1[i][j]=euclidean_distance(c.iloc[j],p.iloc[i])
+    p1[i][j]=euclidean_distance(c.iloc[j],input.iloc[i])
 distmat=pd.DataFrame(p1)
 
-for q in range(len(p)):
+for q in range(len(input)):
   tot=distmat.iloc[q].sum()
 
   for w in range(len(c)):

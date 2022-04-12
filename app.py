@@ -6,11 +6,20 @@ import umap
 import io
 import numpy as np
 import pandas as pd
+import streamlit_authenticator as stauth
 
 
 
 
 st.title("Machine Learning Genomics App")
+
+names = ['Blue Bear','Cream Rabbit']
+usernames = ['bhalu','khwabekhargosh']
+passwords = ['bear','rabbit']
+hashed_passwords = stauth.Hasher(passwords).generate()
+authenticator = stauth.Authenticate(names,usernames,hashed_passwords,'some_cookie_name','some_signature_key',cookie_expiry_days=30)
+name, authentication_status, username = authenticator.login('Login','main')
+
 
 
 dfcurrent=pd.read_csv("G25_Current_DNA.csv")

@@ -187,11 +187,14 @@ elif Tools == "Ancient DNA Lineage Tool":
      st.pyplot()
 
 import os
-current_path=os.getcwd()
-modelumap_path = os.path.join(current_path, 'umap_model.sav')
-
 #filename = 'umap_model.sav'
-loaded_model = pickle.load(open(modelumap_path, 'rb'))
+#current_path=os.getcwd()
+#modelumap_path = os.path.join(current_path, 'umap_model.sav')
+#loaded_model = pickle.load(open(modelumap_path, 'rb'))
+
+pickle_in = open('umap_model.sav', 'rb') 
+loaded_model = pickle.load(pickle_in)
+
 test_embedding = loaded_model.transform(input)
 dftest_embedding=pd.DataFrame(test_embedding)
 

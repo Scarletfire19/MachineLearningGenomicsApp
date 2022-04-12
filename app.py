@@ -8,6 +8,7 @@ import numpy as np
 import pandas as pd
 import streamlit_authenticator as stauth
 
+st.set_option('deprecation.showPyplotGlobalUse', False)
 
 
 

@@ -7,6 +7,8 @@ import io
 import numpy as np
 import pandas as pd
 import streamlit_authenticator as stauth
+import os
+
 
 st.set_option('deprecation.showPyplotGlobalUse', False)
 
@@ -184,11 +186,13 @@ elif Tools == "Ancient DNA Lineage Tool":
           ax2.annotate(dfancienthpg['Assigned Mutation'][i], (dfancienthpg['1'][i], dfancienthpg['2'][i]))
      st.pyplot()
 
+import os
+current_path=os.getcwd()
+modelumap_path = os.path.join(current_path, 'umap_model.sav')
 
-inputumap=Xancient.iloc[2288:2316]
-filename = 'umap_model.sav'
-loaded_model = pickle.load(open(filename, 'rb'))
-test_embedding = loaded_model.transform(inputumap)
+#filename = 'umap_model.sav'
+loaded_model = pickle.load(open(modelumap_path, 'rb'))
+test_embedding = loaded_model.transform(input)
 dftest_embedding=pd.DataFrame(test_embedding)
 
 fig5, ax5 = plt.subplots(figsize=(50, 200))

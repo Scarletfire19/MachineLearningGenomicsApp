@@ -36,7 +36,6 @@ if authentication_status:
 elif authentication_status == False:
     st.error('Username/password is incorrect')
 elif authentication_status == None:
-    st.warning('')
     
     
 

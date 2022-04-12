@@ -185,3 +185,14 @@ elif Tools == "Ancient DNA Lineage Tool":
      st.pyplot()
 
 
+inputumap=Xancient.iloc[2288:2316]
+filename = 'umap_model.sav'
+loaded_model = pickle.load(open(filename, 'rb'))
+test_embedding = loaded_model.transform(inputumap)
+dftest_embedding=pd.DataFrame(test_embedding)
+
+fig5, ax5 = plt.subplots(figsize=(50, 200))
+scatter = ax5.scatter(dftest_embedding[0], dftest_embedding[1],s=120,marker='*')
+fig=plt.figure(figsize=(55,90))
+st.pyplot()
+

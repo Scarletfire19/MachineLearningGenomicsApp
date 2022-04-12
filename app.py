@@ -35,9 +35,7 @@ if authentication_status:
     st.title('Some content')
 elif authentication_status == False:
     st.error('Username/password is incorrect')
-elif authentication_status == None:
-    
-    
+
 
 dfcurrent=pd.read_csv("G25_Current_DNA.csv")
 Xcurrent=dfcurrent.drop(columns=['DNA sample ethnicity and id','DNA sample ethnicity','sample id'])

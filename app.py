@@ -109,11 +109,13 @@ if Tools == "Genetic Distance Tool":
      page_bg_img = '''
      <style>
      body {
-     background-image: url("#https://blog.23andme.com/wp-content/uploads/2008/09/novembreblogpostfig.jpg");
+     background-image: url("https://blog.23andme.com/wp-content/uploads/2008/09/novembreblogpostfig.jpg");
      background-size: cover;
      }
      </style>
      '''
+     st.markdown(page_bg_img, unsafe_allow_html=True)
+
 
      st.title("Genetic Distance Tool")
      Xinput=input.drop(columns=['DNA sample ethnicity and id'])
@@ -158,6 +160,17 @@ elif Tools == "PCA(Principal Component Analysis) Tool":
 
 
 elif Tools == "Ancient DNA Lineage Tool":
+     page_bg_img3 = '''
+     <style>
+     body {
+     background-image: url("https://blog.23andme.com/wp-content/uploads/2008/09/novembreblogpostfig.jpg");
+     background-size: cover;
+     }
+     </style>
+     '''
+     st.markdown(page_bg_img3, unsafe_allow_html=True)
+
+    
      ancienthaplogroup = dfancienthpg[dfancienthpg['Assigned Mutation'].str.contains(inputhaplogroup)]     
      st.title("Ancient DNA Lineage Tool")
 

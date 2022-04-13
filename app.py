@@ -159,7 +159,7 @@ elif Tools == "PCA(Principal Component Analysis) Tool":
         
      pd.options.plotting.backend = "plotly"
      figplotly0 = dfcurrentgroup.plot.scatter(x="1", y="2",text="DNA sample ethnicity")
-     figplotly0 = input.plot.scatter(x="1", y="2",text="DNA sample ethnicity")
+     figplotly0 = input.plot.scatter(x="1", y="2",text="DNA sample ethnicity and id")
      st.plotly_chart(figplotly0)   
 
      #fig, ax = plt.subplots(figsize=(45, 99))

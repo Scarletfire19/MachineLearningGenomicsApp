@@ -154,16 +154,22 @@ elif Tools == "ML Ancestry Tool":
 
 
 elif Tools == "PCA(Principal Component Analysis) Tool":
+    
      st.title("PCA(Principal Component Analysis) Tool")
+        
+     pd.options.plotting.backend = "plotly"
+     figplotly0 = dfcurrentgroup.plot.scatter(x="1", y="2",text="DNA sample ethnicity")
+     figplotly0 = input.plot.scatter(x="1", y="2",text="DNA sample ethnicity")
+     st.plotly_chart(figplotly0)   
 
-     fig, ax = plt.subplots(figsize=(45, 99))
-     ax.scatter(dfcurrentgroup['1'], dfcurrentgroup['2'],s = 1)
-     ax.scatter(input['1'], input['2'],s = 5)
-  #ax.scatter(point['1'],point['2'],s=500)
+     #fig, ax = plt.subplots(figsize=(45, 99))
+     #ax.scatter(dfcurrentgroup['1'], dfcurrentgroup['2'],s = 1)
+     #ax.scatter(input['1'], input['2'],s = 5)
+     #ax.scatter(point['1'],point['2'],s=500)
 
-     for i in range(len(dfcurrentgroup)):
-          ax.annotate(dfcurrentgroup['DNA sample ethnicity'][i], (dfcurrentgroup['1'][i], dfcurrentgroup['2'][i]))
-     st.pyplot()
+     #for i in range(len(dfcurrentgroup)):
+     #     ax.annotate(dfcurrentgroup['DNA sample ethnicity'][i], (dfcurrentgroup['1'][i], dfcurrentgroup['2'][i]))
+     #st.pyplot()
 
 
 elif Tools == "Ancient DNA Lineage Tool":

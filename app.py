@@ -154,12 +154,13 @@ elif Tools == "ML Ancestry Tool":
 
 
 elif Tools == "PCA(Principal Component Analysis) Tool":
+     dfcurrentgroupandinput=pd.concat(dfcurrentgroup,input)
     
      st.title("PCA(Principal Component Analysis) Tool")
-        
+       
      pd.options.plotting.backend = "plotly"
      figplotly0 = dfcurrentgroup.plot.scatter(x="1", y="2",text="DNA sample ethnicity")
-     figplotly0 = input.plot.scatter(x="1", y="2",text="DNA sample ethnicity and id",marker=dict(color='LightSkyBlue',size=20))
+     figplotly0 = input.plot.scatter(x="1", y="2",text="DNA sample ethnicity and id")
      #figplotly0.update_traces(marker=dict(size=12,line=dict(width=2,color='DarkSlateGrey')),selector=dict(mode='markers'))
      #figplotly0.add_trace(go.Scatter(x=input["1"],y=input["2"],mode="markers",markers=dict(color="black")))
      st.plotly_chart(figplotly0)   

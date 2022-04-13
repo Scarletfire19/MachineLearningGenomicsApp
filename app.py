@@ -162,7 +162,7 @@ elif Tools == "PCA(Principal Component Analysis) Tool":
      figplotly0 = input.plot.scatter(x="1", y="2",text="DNA sample ethnicity and id")
      figplotly0.add_trace(
         go.Scatter(
-        x=input["1",
+        x=input["1"],
         y=input["2"],
         mode="markers",
         line=dict(color="black")))

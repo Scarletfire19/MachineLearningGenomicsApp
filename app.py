@@ -110,7 +110,7 @@ k=0
 #dfdistances
 #print(dfdistances['DNA sample ethnicity and id'].iloc[:3])
 
-Tools = st.selectbox("Choose your Tool", ["Genetic Distance Tool", "PCA(Principal Component Analysis) Tool","ML Ancestry Tool","Ancient DNA Lineage Tool","Umap"]) 
+Tools = st.selectbox("Choose your Tool", ["Genetic Distance Tool", "PCA(Principal Component Analysis) Tool","ML Ancestry Tool","Ancient DNA Lineage Tool","tSNE","Umap"]) 
 
 if Tools == "Genetic Distance Tool":
      page_bg_img = '''
@@ -191,10 +191,15 @@ elif Tools == "Ancient DNA Lineage Tool":
           ax2.annotate(dfancienthpg['Assigned Mutation'][i], (dfancienthpg['1'][i], dfancienthpg['2'][i]))
      st.pyplot()
     
+elif Tools == "tSNE":
+     pd.options.plotting.backend = "plotly"
+     figplotly1 = dftsne.plot.scatter(x="0", y="1",text="DNA sample ethnicity")
+     st.plotly_chart(figplotly1, use_container_width=True)
+    
 elif Tools == "Umap":
      pd.options.plotting.backend = "plotly"
-     figplotly = dfumap.plot.scatter(x="0", y="1",text="DNA sample ethnicity")
-     st.plotly_chart(figplotly, use_container_width=True)
+     figplotly2 = dfumap.plot.scatter(x="0", y="1",text="DNA sample ethnicity")
+     st.plotly_chart(figplotly2, use_container_width=True)
     
 
 

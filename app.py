@@ -8,6 +8,8 @@ import numpy as np
 import pandas as pd
 import streamlit_authenticator as stauth
 import os
+import plotly.express as px
+
 
 
 st.set_option('deprecation.showPyplotGlobalUse', False)
@@ -64,6 +66,9 @@ dfadnalineages=pd.read_csv("adnalineages.csv")
 dfancientpcadna = pd.merge(dfadnalineages,dfancient)
 dfancienthpg=dfancientpcadna.groupby(['Assigned Mutation']).mean().reset_index()
 
+dfumap=pd.read_csv('umap.csv')
+dftsne=pd.read_csv('tSNE.csv')
+
 
 uploaded_file = st.file_uploader("Enter G25 co-ordinates")
 if uploaded_file is not None:
@@ -105,7 +110,7 @@ k=0
 #dfdistances
 #print(dfdistances['DNA sample ethnicity and id'].iloc[:3])
 
-Tools = st.selectbox("Choose your Tool", ["Genetic Distance Tool", "PCA(Principal Component Analysis) Tool","ML Ancestry Tool","Ancient DNA Lineage Tool"]) 
+Tools = st.selectbox("Choose your Tool", ["Genetic Distance Tool", "PCA(Principal Component Analysis) Tool","ML Ancestry Tool","Ancient DNA Lineage Tool","Umap"]) 
 
 if Tools == "Genetic Distance Tool":
      page_bg_img = '''
@@ -185,6 +190,13 @@ elif Tools == "Ancient DNA Lineage Tool":
      for i in range(len(dfancienthpg)):
           ax2.annotate(dfancienthpg['Assigned Mutation'][i], (dfancienthpg['1'][i], dfancienthpg['2'][i]))
      st.pyplot()
+    
+elif Tools == "Umap":
+     pd.options.plotting.backend = "plotly"
+     figplotly = dfumap.plot.scatter(x="0", y="1",text="DNA sample ethnicity")
+     figplotly.show()
+    
+
 
 import os
 #filename = 'umap_model.sav'

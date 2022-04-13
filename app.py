@@ -189,10 +189,10 @@ elif Tools == "Ancient DNA Lineage Tool":
 import os
 #filename = 'umap_model.sav'
 #current_path=os.getcwd()
-#modelumap_path = os.path.join(current_path, 'umap_model.pkl')
+#modelumap_path = os.path.join(current_path, 'umap_model.sav')
 #loaded_model = pickle.load(open(modelumap_path, 'rb'))
 
-pickle_in = open('umap_model.sav', 'rb') 
+pickle_in = open('umap_model.pkl', 'rb') 
 loaded_model = pickle.load(pickle_in)
 
 test_embedding = loaded_model.transform(input)

@@ -194,7 +194,7 @@ elif Tools == "Ancient DNA Lineage Tool":
 elif Tools == "Umap":
      pd.options.plotting.backend = "plotly"
      figplotly = dfumap.plot.scatter(x="0", y="1",text="DNA sample ethnicity")
-     figplotly.show()
+     st.plotly_chart(figplotly, use_container_width=True)
     
 
 

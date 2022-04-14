@@ -9,6 +9,7 @@ import pandas as pd
 import streamlit_authenticator as stauth
 import os
 import plotly.express as px
+from scipy.spatial import distance
 
 
 
@@ -126,9 +127,10 @@ Tools = st.selectbox("Choose your Tool", ["Genetic Distance Tool", "PCA(Principa
 
 if Tools == "Genetic Distance Tool":
      st.title("Genetic Distance Tool")
-        
+       
      sample_choice = st.sidebar.selectbox('',input['DNA sample ethnicity and id'])
      st.write(sample_choice)
+    
      distancesample = dfancient[dfancient['DNA sample ethnicity and id']==sample_choice]     
      xdistancesample=distancesample.iloc[:,1:26]
 
@@ -136,11 +138,17 @@ if Tools == "Genetic Distance Tool":
      #distancesample = input[input['DNA sample ethnicity and id'].str.contains(sample_choice)]     
      #Xinput=input.drop(columns=['DNA sample ethnicity and id'])
 
-    
      for i in range(len(Xcombined)):
-          distances.append(euclidean_distance(Xcombined.iloc[i],xdistancesample))
+        distances.append(float(distance.cdist(Xcombined.iloc[[0]],xdistancesample, metric='euclidean')))
      dfdistances['distances']=distances
      dfdistances=dfdistances.sort_values(by=['distances'])
+        
+    
+     #for i in range(len(Xcombined)):
+     #     distances.append(euclidean_distance(Xcombined.iloc[i],xdistancesample))
+     #dfdistances['distances']=distances
+     #dfdistances=dfdistances.sort_values(by=['distances'])
+     
      st.dataframe(dfdistances)
 
 

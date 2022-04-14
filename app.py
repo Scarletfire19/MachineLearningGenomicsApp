@@ -126,7 +126,7 @@ Tools = st.selectbox("Choose your Tool", ["Genetic Distance Tool", "PCA(Principa
 
 if Tools == "Genetic Distance Tool":
      sample_choice = st.sidebar.selectbox('',input['DNA sample ethnicity and id'])
-     st.write(sample_choice) `
+     st.write(sample_choice)
 
      #distancesampleid = st.text_input("DNA sample ethnicity and id")
      distancesample = input[input['DNA sample ethnicity and id'].str.contains(sample_choice)]     

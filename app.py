@@ -177,7 +177,7 @@ elif Tools == "Ancient DNA Lineage Tool":
      st.title("Ancient DNA Lineage Tool")
     
      pd.options.plotting.backend = "plotly"
-     figplotly05 = dfancienthpg.plot.scatter(x="1", y="2",text="DNA sample ethnicity")
+     figplotly05 = dfancienthpg.plot.scatter(x="0", y="1",text="Assigned Mutation")
      st.plotly_chart(figplotly05)
 
 

@@ -22,7 +22,7 @@ st.set_option('deprecation.showPyplotGlobalUse', False)
 page_bg_img = '''
 <style>
 body {
-background-image: url("https://blog.23andme.com/wp-content/uploads/2008/09/novembreblogpostfig.jpg");
+background-image: url("https://wallpapercave.com/wp/wp4594030.jpg");
 background-size: cover;
 }
 </style>

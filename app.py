@@ -19,6 +19,18 @@ st.set_option('deprecation.showPyplotGlobalUse', False)
 #https://blog.23andme.com/wp-content/uploads/2008/09/novembreblogpostfig.jpg
 #https://media.istockphoto.com/photos/background-picture-id185314478?b=1&k=20&m=185314478&s=612x612&w=0&h=XTWvVxe3IdiV6B5bJDi2DAICfqmyaZxWnWyXY_Lw5kk=
 
+page_bg_img = '''
+<style>
+body {
+background-image: url("https://blog.23andme.com/wp-content/uploads/2008/09/novembreblogpostfig.jpg");
+background-size: cover;
+}
+</style>
+'''
+st.markdown(page_bg_img, unsafe_allow_html=True)
+
+
+
 st.title("Machine Learning Genomics App")
 
 names = ['Blue Bear','Cream Rabbit']
@@ -113,15 +125,7 @@ k=0
 Tools = st.selectbox("Choose your Tool", ["Genetic Distance Tool", "PCA(Principal Component Analysis) Tool","ML Ancestry Tool","Ancient DNA Lineage Tool","tSNE","Umap"]) 
 
 if Tools == "Genetic Distance Tool":
-     page_bg_img = '''
-     <style>
-     body {
-     background-image: url("https://blog.23andme.com/wp-content/uploads/2008/09/novembreblogpostfig.jpg");
-     background-size: cover;
-     }
-     </style>
-     '''
-     st.markdown(page_bg_img, unsafe_allow_html=True)
+
 
 
      st.title("Genetic Distance Tool")
@@ -138,15 +142,6 @@ if Tools == "Genetic Distance Tool":
 
 elif Tools == "ML Ancestry Tool":
     
-     page_bg_img2 = '''
-     <style>
-     body {
-     background-image: url("https://cdn-prod.medicalnewstoday.com/content/images/articles/318/318492/dna-strands.jpg");
-     background-size: cover;
-     }
-     </style>
-     '''
-     st.markdown(page_bg_img2, unsafe_allow_html=True)
      
 
      st.title("ML Ancestry Tool")
@@ -176,16 +171,6 @@ elif Tools == "PCA(Principal Component Analysis) Tool":
 
 
 elif Tools == "Ancient DNA Lineage Tool":
-     page_bg_img3 = '''
-     <style>
-     body {
-     background-image: url("https://blog.23andme.com/wp-content/uploads/2008/09/novembreblogpostfig.jpg");
-     background-size: cover;
-     }
-     </style>
-     '''
-     st.markdown(page_bg_img3, unsafe_allow_html=True)
-
     
      ancienthaplogroup = dfancienthpg[dfancienthpg['Assigned Mutation'].str.contains(inputhaplogroup)]     
      st.title("Ancient DNA Lineage Tool")

@@ -125,20 +125,21 @@ k=0
 Tools = st.selectbox("Choose your Tool", ["Genetic Distance Tool", "PCA(Principal Component Analysis) Tool","ML Ancestry Tool","Ancient DNA Lineage Tool","tSNE","Umap"]) 
 
 if Tools == "Genetic Distance Tool":
+     st.title("Genetic Distance Tool")
+        
      sample_choice = st.sidebar.selectbox('',input['DNA sample ethnicity and id'])
      st.write(sample_choice)
+     distancesample = dfancient[dfancient['DNA sample ethnicity and id']==sample_choice]     
+     xdistancesample=distancesample.iloc[:,1:26]
 
      #distancesampleid = st.text_input("DNA sample ethnicity and id")
-     distancesample = input[input['DNA sample ethnicity and id'].str.contains(sample_choice)]     
-
-     st.title("Genetic Distance Tool")
+     #distancesample = input[input['DNA sample ethnicity and id'].str.contains(sample_choice)]     
      #Xinput=input.drop(columns=['DNA sample ethnicity and id'])
 
-
+    
      for i in range(len(Xcombined)):
-          distances.append(euclidean_distance(Xcombined.iloc[i],distancesample))
+          distances.append(euclidean_distance(Xcombined.iloc[i],xdistancesample))
      dfdistances['distances']=distances
-
      dfdistances=dfdistances.sort_values(by=['distances'])
      st.dataframe(dfdistances)
 

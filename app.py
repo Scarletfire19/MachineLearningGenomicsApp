@@ -125,8 +125,10 @@ k=0
 Tools = st.selectbox("Choose your Tool", ["Genetic Distance Tool", "PCA(Principal Component Analysis) Tool","ML Ancestry Tool","Ancient DNA Lineage Tool","tSNE","Umap"]) 
 
 if Tools == "Genetic Distance Tool":
-     distancesampleid = st.text_input("DNA sample ethnicity and id")
-     distancesample = input[input['DNA sample ethnicity and id'].str.contains(distancesampleid)]     
+     sample_choice = st.sidebar.selectbox('',input['DNA sample ethnicity and id'])
+
+     #distancesampleid = st.text_input("DNA sample ethnicity and id")
+     distancesample = input[input['DNA sample ethnicity and id'].str.contains(sample_choice)]     
 
      st.title("Genetic Distance Tool")
      #Xinput=input.drop(columns=['DNA sample ethnicity and id'])

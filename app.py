@@ -139,7 +139,7 @@ if Tools == "Genetic Distance Tool":
      #Xinput=input.drop(columns=['DNA sample ethnicity and id'])
 
      for i in range(len(Xcombined)):
-        distances.append(float(distance.cdist(Xcombined.iloc[[0]],xdistancesample, metric='euclidean')))
+        distances.append(float(distance.cdist(Xcombined.iloc[[i]],xdistancesample, metric='euclidean')))
      dfdistances['distances']=distances
      dfdistances=dfdistances.sort_values(by=['distances'])
         

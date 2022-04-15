@@ -32,30 +32,74 @@ background-size: cover;
 
 st.markdown(page_bg_img, unsafe_allow_html=True)
 
-
 st.title("Machine Learning Genomics App")
 
-names = ['Blue Bear','Cream Rabbit']
-usernames = ['bhalu','khwabekhargosh']
-passwords = ['bear','rabbit']
-hashed_passwords = stauth.Hasher(passwords).generate()
-authenticator = stauth.Authenticate(names,usernames,hashed_passwords,'some_cookie_name','some_signature_key',cookie_expiry_days=30)
-name, authentication_status, username = authenticator.login('Login','main')
 
-if authentication_status:
-    st.write('Welcome *%s*' % (name))
-    st.title('Some content')
-elif authentication_status == False:
-    st.error('Username/password is incorrect')
-elif authentication_status == None:
-    st.warning('Please enter your username and password')
+# streamlit_app.py
 
-if authentication_status:
-    authenticator.logout('Logout', 'main')
-    st.write('Welcome *%s*' % (name))
-    st.title('Some content')
-elif authentication_status == False:
-    st.error('Username/password is incorrect')
+import streamlit as st
+
+def check_password():
+    """Returns `True` if the user had a correct password."""
+
+    def password_entered():
+        """Checks whether a password entered by the user is correct."""
+        if (
+            st.session_state["username"] in st.secrets["passwords"]
+            and st.session_state["password"]
+            == st.secrets["passwords"][st.session_state["username"]]
+        ):
+            st.session_state["password_correct"] = True
+            del st.session_state["password"]  # don't store username + password
+            del st.session_state["username"]
+        else:
+            st.session_state["password_correct"] = False
+
+    if "password_correct" not in st.session_state:
+        # First run, show inputs for username + password.
+        st.text_input("Username", on_change=password_entered, key="username")
+        st.text_input(
+            "Password", type="password", on_change=password_entered, key="password"
+        )
+        return False
+    elif not st.session_state["password_correct"]:
+        # Password not correct, show input + error.
+        st.text_input("Username", on_change=password_entered, key="username")
+        st.text_input(
+            "Password", type="password", on_change=password_entered, key="password"
+        )
+        st.error("😕Password incorrect")
+        return False
+    else:
+        # Password correct.
+        return True
+
+if check_password():
+    st.write("Welcome")
+    st.button("Welcome")
+
+
+#names = ['Blue Bear','Cream Rabbit']
+#usernames = ['bhalu','khwabekhargosh']
+#passwords = ['bear','rabbit']
+#hashed_passwords = stauth.Hasher(passwords).generate()
+#authenticator = stauth.Authenticate(names,usernames,hashed_passwords,'some_cookie_name','some_signature_key',cookie_expiry_days=30)
+#name, authentication_status, username = authenticator.login('Login','main')
+
+#if authentication_status:
+#    st.write('Welcome *%s*' % (name))
+#    st.title('Some content')
+#elif authentication_status == False:
+#    st.error('Username/password is incorrect')
+#elif authentication_status == None:
+#    st.warning('Please enter your username and password')
+
+#if authentication_status:
+#    authenticator.logout('Logout', 'main')
+#    st.write('Welcome *%s*' % (name))
+#    st.title('Some content')
+#elif authentication_status == False:
+#    st.error('Username/password is incorrect')
 
 
 dfcurrent=pd.read_csv("G25_Current_DNA.csv")

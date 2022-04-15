@@ -154,6 +154,26 @@ if Tools == "Genetic Distance Tool":
 
 
 elif Tools == "ML Ancestry Tool":
+     p1 = np.zeros((len(input),len(c)))
+     p2 = np.zeros((len(input),len(c)))
+
+    ctr=c
+    inputcol=input.iloc[:,1:]
+
+    for i in range(len(input)):
+        for j in range(len(ctr)):
+            p1[i][j]=float(distance.cdist(ctr.loc[[j]],inputcol.loc[[i]], metric='euclidean'))
+    distmat=pd.DataFrame(p1)
+
+
+    for q in range(len(input)):
+        tot=distmat.iloc[q].sum()
+        for w in range(len(c)):
+            p2.iloc[q,w]=1-((tot-distmat.iloc[q,w])/tot)
+
+    p3=pd.DataFrame(p2)
+    p3.insert(0, 'DNA sample ethnicity and id',input['DNA sample ethnicity and id'])
+    st.write(p3)
     
      
 

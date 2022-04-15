@@ -172,7 +172,7 @@ elif Tools == "PCA(Principal Component Analysis) Tool":
 
      figplotlypca=go.Figure()
      figplotlypca.add_trace(go.Scatter(x=dfcurrentgroup["1"],y=dfcurrentgroup["2"],text=dfcurrentgroup['DNA sample ethnicity'],mode="markers",marker=dict(size=3, color="LightSeaGreen")))
-     figplotlypca.add_trace(go.Scatter(x=input["1"],y=input["2"],text=dfcurrentgroup['DNA sample ethnicity and id'],mode="markers",marker=dict(size=3, color="crimson")))
+     figplotlypca.add_trace(go.Scatter(x=input["1"],y=input["2"],text=input['DNA sample ethnicity and id'],mode="markers",marker=dict(size=3, color="crimson")))
      st.plotly_chart(figplotlypca)
     
      #figplotly0 = dfcurrentgroup.plot.scatter(x="1", y="2",text="DNA sample ethnicity")

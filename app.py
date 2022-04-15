@@ -154,6 +154,7 @@ if Tools == "Genetic Distance Tool":
 
 
 elif Tools == "ML Ancestry Tool":
+    
      st.title("ML Ancestry Tool")
 
      p1 = np.zeros((len(input),len(c)))
@@ -163,7 +164,7 @@ elif Tools == "ML Ancestry Tool":
      inputcol=input.iloc[:,1:]
 
      for i in range(len(input)):
-            for j in range(len(ctr)):
+        for j in range(len(ctr)):
             p1[i][j]=float(distance.cdist(ctr.loc[[j]],inputcol.loc[[i]], metric='euclidean'))
      distmat=pd.DataFrame(p1)
 

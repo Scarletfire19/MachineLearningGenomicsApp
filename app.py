@@ -10,6 +10,7 @@ import streamlit_authenticator as stauth
 import os
 import plotly.express as px
 from scipy.spatial import distance
+import plotly.graph_objects as go
 
 
 
@@ -166,11 +167,19 @@ elif Tools == "PCA(Principal Component Analysis) Tool":
      st.title("PCA(Principal Component Analysis) Tool")
        
      pd.options.plotting.backend = "plotly"
-     figplotly0 = dfcurrentgroup.plot.scatter(x="1", y="2",text="DNA sample ethnicity")
-     figplotly0 = input.plot.scatter(x="1", y="2",text="DNA sample ethnicity and id")
+        
+     import plotly.graph_objects as go
+
+     figplotlypca=go.Figure()
+     figplotlypca.add_trace(go.Scatter(x=dfcurrentgroup["1"],y=dfcurrentgroup["2"],text=dfcurrentgroup['DNA sample ethnicity'],mode="markers",marker=dict(size=3, color="LightSeaGreen")))
+     figplotlypca.add_trace(go.Scatter(x=input["1"],y=input["2"],mode="markers",marker=dict(size=3, color="crimson")))
+     st.plotly_chart(figplotly)
+    
+     #figplotly0 = dfcurrentgroup.plot.scatter(x="1", y="2",text="DNA sample ethnicity")
+     #figplotly0 = input.plot.scatter(x="1", y="2",text="DNA sample ethnicity and id")
      #figplotly0.update_traces(marker=dict(size=12,line=dict(width=2,color='DarkSlateGrey')),selector=dict(mode='markers'))
      #figplotly0.add_trace(go.Scatter(x=input["1"],y=input["2"],mode="markers",markers=dict(color="black")))
-     st.plotly_chart(figplotly0)   
+     #st.plotly_chart(figplotly0)   
 
      #fig, ax = plt.subplots(figsize=(45, 99))
      #ax.scatter(dfcurrentgroup['1'], dfcurrentgroup['2'],s = 1)

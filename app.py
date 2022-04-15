@@ -171,8 +171,8 @@ elif Tools == "PCA(Principal Component Analysis) Tool":
      import plotly.graph_objects as go
 
      figplotlypca=go.Figure()
-     figplotlypca.add_trace(go.Scatter(x=dfcurrentgroup["1"],y=dfcurrentgroup["2"],text=dfcurrentgroup['DNA sample ethnicity'],mode="markers",marker=dict(size=3, color="forestgreen")))
-     figplotlypca.add_trace(go.Scatter(x=input["1"],y=input["2"],text=input['DNA sample ethnicity and id'],mode="markers",marker=dict(size=3, color="crimson")))
+     figplotlypca.add_trace(go.Scatter(x=dfcurrentgroup["1"],y=dfcurrentgroup["2"],text=dfcurrentgroup['DNA sample ethnicity'],name="Current Communities/Groups",mode="markers",marker=dict(size=3, color="forestgreen")))
+     figplotlypca.add_trace(go.Scatter(x=input["1"],y=input["2"],text=input['DNA sample ethnicity and id'],name="Input",mode="markers",marker=dict(size=3, color="crimson")))
      st.plotly_chart(figplotlypca)
     
      #figplotly0 = dfcurrentgroup.plot.scatter(x="1", y="2",text="DNA sample ethnicity")
@@ -200,9 +200,9 @@ elif Tools == "Ancient DNA Lineage Tool":
      import plotly.graph_objects as go
 
      figplotlyadna=go.Figure()
-     figplotlyadna.add_trace(go.Scatter(x=dfancienthpg["1"],y=dfancienthpg["2"],text=dfancienthpg['Assigned Mutation'],mode="markers",marker=dict(size=3, color="forestgreen")))
-     figplotlyadna.add_trace(go.Scatter(x=input["1"],y=input["2"],text=input['DNA sample ethnicity and id'],mode="markers",marker=dict(size=3, color="crimson")))
-     figplotlyadna.add_trace(go.Scatter(x=ancienthaplogroup["1"],y=ancienthaplogroup["2"],text=ancienthaplogroup['Assigned Mutation'],mode="markers",marker=dict(size=4, color="fuchsia")))
+     figplotlyadna.add_trace(go.Scatter(x=dfancienthpg["1"],y=dfancienthpg["2"],text=dfancienthpg['Assigned Mutation'],name="Ancient Lineage",mode="markers",marker=dict(size=3, color="forestgreen")))
+     figplotlyadna.add_trace(go.Scatter(x=input["1"],y=input["2"],text=input['DNA sample ethnicity and id'],name="Input",mode="markers",marker=dict(size=3, color="crimson")))
+     figplotlyadna.add_trace(go.Scatter(x=ancienthaplogroup["1"],y=ancienthaplogroup["2"],text=ancienthaplogroup['Assigned Mutation'],name="Modern Haplogroup",mode="markers",marker=dict(size=4, color="fuchsia")))
 
      st.plotly_chart(figplotlyadna)
     

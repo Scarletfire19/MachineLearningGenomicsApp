@@ -234,14 +234,14 @@ import os
 #modelumap_path = os.path.join(current_path, 'umap_model.sav')
 #loaded_model = pickle.load(open(modelumap_path, 'rb'))
 
-pickle_in = open('umap_model.pkl', 'rb') 
-loaded_model = pickle.load(pickle_in)
+#pickle_in = open('umap_model.pkl', 'rb') 
+#loaded_model = pickle.load(pickle_in)
 
-test_embedding = loaded_model.transform(input)
-dftest_embedding=pd.DataFrame(test_embedding)
+#test_embedding = loaded_model.transform(input)
+#dftest_embedding=pd.DataFrame(test_embedding)
 
-fig5, ax5 = plt.subplots(figsize=(50, 200))
-scatter = ax5.scatter(dftest_embedding[0], dftest_embedding[1],s=120,marker='*')
-fig=plt.figure(figsize=(55,90))
-st.pyplot()
+#fig5, ax5 = plt.subplots(figsize=(50, 200))
+#scatter = ax5.scatter(dftest_embedding[0], dftest_embedding[1],s=120,marker='*')
+#fig=plt.figure(figsize=(55,90))
+#st.pyplot()
 

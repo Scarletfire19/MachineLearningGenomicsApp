@@ -127,9 +127,15 @@ k=0
 #dfdistances
 #print(dfdistances['DNA sample ethnicity and id'].iloc[:3])
 
-Tools = st.selectbox("Choose your Tool", ["Genetic Distance Tool", "PCA(Principal Component Analysis) Tool","ML Ancestry Tool","Ancient DNA Lineage Tool","tSNE","Umap"]) 
+Tools = st.selectbox("Choose your Tool", ["tSNE","Genetic Distance Tool", "PCA(Principal Component Analysis) Tool","ML Ancestry Tool","Ancient DNA Lineage Tool","Umap"]) 
 
-if Tools == "Genetic Distance Tool":
+if Tools == "tSNE":
+     pd.options.plotting.backend = "plotly"
+     figplotly1 = dftsne.plot.scatter(x="0", y="1",text="DNA sample ethnicity")
+     st.plotly_chart(figplotly1, use_container_width=True)
+
+
+elif Tools == "Genetic Distance Tool":
      st.title("Genetic Distance Tool")
        
      sample_choice = st.sidebar.selectbox('',input['DNA sample ethnicity and id'])
@@ -237,12 +243,6 @@ elif Tools == "Ancient DNA Lineage Tool":
      #figplotly05 = dfancienthpg.plot.scatter(x="1", y="2",text="Assigned Mutation")
      #st.plotly_chart(figplotly05)
 
-
-    
-elif Tools == "tSNE":
-     pd.options.plotting.backend = "plotly"
-     figplotly1 = dftsne.plot.scatter(x="0", y="1",text="DNA sample ethnicity")
-     st.plotly_chart(figplotly1, use_container_width=True)
     
 elif Tools == "Umap":
      pd.options.plotting.backend = "plotly"

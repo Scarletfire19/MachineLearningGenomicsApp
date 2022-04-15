@@ -170,9 +170,9 @@ elif Tools == "ML Ancestry Tool":
 
 
      for q in range(len(input)):
-            tot=distmat.iloc[q].sum()
-            for w in range(len(c)):
-                p2.iloc[q,w]=1-((tot-distmat.iloc[q,w])/tot)
+        tot=distmat.iloc[q].sum()
+        for w in range(len(c)):
+            p2.iloc[q,w]=1-((tot-distmat.iloc[q,w])/tot)
 
      p3=pd.DataFrame(p2)
      p3.insert(0, 'DNA sample ethnicity and id',input['DNA sample ethnicity and id'])

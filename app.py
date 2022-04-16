@@ -60,6 +60,9 @@ st.title("Machine Learning Genomics App")
 #elif authentication_status == False:
 #    st.error('Username/password is incorrect')
 
+dfadnalatlonglineage=pd.read_csv('adnalatlonglineage.csv')
+dfadnalatlonglineage['Long'] = pd.to_numeric(dfadnalatlonglineage['Longitude'],errors='coerce')
+dfadnalatlonglineage['Lat']=pd.to_numeric(dfadnalatlonglineage['Latitude'],errors='coerce')
 
 dfcurrent=pd.read_csv("G25_Current_DNA.csv")
 Xcurrent=dfcurrent.drop(columns=['DNA sample ethnicity and id','DNA sample ethnicity','sample id'])
@@ -127,9 +130,16 @@ k=0
 #dfdistances
 #print(dfdistances['DNA sample ethnicity and id'].iloc[:3])
 
-Tools = st.selectbox("Choose your Tool", ["tSNE","Genetic Distance Tool", "PCA(Principal Component Analysis) Tool","ML Ancestry Tool","Ancient DNA Lineage Tool","Umap"]) 
+Tools = st.selectbox("Choose your Tool", ["Genetic World Map","t-SNE","Genetic Distance Tool", "PCA(Principal Component Analysis) Tool","ML Ancestry Tool","Ancient DNA Lineage Tool","Umap"]) 
 
-if Tools == "tSNE":
+if Tools == "Genetic World Map":
+     st.title("Genetic World Map")
+     figworldmap = px.scatter_mapbox(dfadnalatlonglineage, lat="Lat", lon="Long", hover_name="Sample ID/Group/Community", hover_data=["Location","Y chromosome haplogroup", "mtDNA haplogroup","Average Confidence Interval Date","Dating","Gender","Published Study"], color_discrete_sequence=["maroon"], zoom=3, height=1200)
+     figworldmap.update_layout(mapbox_style="stamen-terrain")
+     st.plotly_chart(figworldmap, use_container_width=True)
+
+elif Tools == "t-SNE":
+     st.title("t-SNE plot")
      pd.options.plotting.backend = "plotly"
      figplotly1 = dftsne.plot.scatter(x="0", y="1",text="DNA sample ethnicity")
      st.plotly_chart(figplotly1, use_container_width=True)

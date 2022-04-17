@@ -98,6 +98,12 @@ if uploaded_file is not None:
           
 inputhaplogroup = st.text_input("Enter Y Haplogroup")
 
+try:
+  if input:
+    print("Proceed with Machine Learning Genomics App Tools")
+except:
+  print("Please enter input")
+
 def euclidean_distance(w, q):
     n = 25 
     return sum([(w[i] - q[i]) ** 2 for i in range(n)]) ** 0.5

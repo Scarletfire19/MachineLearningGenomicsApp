@@ -100,9 +100,9 @@ inputhaplogroup = st.text_input("Enter Y Haplogroup")
 
 try:
   if len(input)>10:
-    print("Proceed with ML Genomics Tools")
+     st.write("Proceed with ML Genomics Tools")
 except:
-  print("Please enter input")
+     st.write("Please enter input")
 
 def euclidean_distance(w, q):
     n = 25 

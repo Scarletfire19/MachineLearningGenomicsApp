@@ -99,10 +99,10 @@ if uploaded_file is not None:
 inputhaplogroup = st.text_input("Enter Y Haplogroup")
 
 try:
-  if input:
-    st.write("Proceed with Machine Learning Genomics App Tools")
+  if len(input)>10:
+    print("Proceed with ML Genomics Tools")
 except:
-  st.write("Please enter input")
+  print("Please enter input")
 
 def euclidean_distance(w, q):
     n = 25 
